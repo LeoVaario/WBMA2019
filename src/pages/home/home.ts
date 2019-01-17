@@ -18,8 +18,10 @@ export class HomePage {
     this.getImages();
   }
   getImages() {
-    this.http.get<Pic[]>(this.mediaPath).subscribe((response: Pic[]) => this.picArray = response);
-    console.log(this.picArray);
-  }
+    this.http.get<Pic[]>(this.mediaPath).subscribe((response: Pic[]) => {
+      this.picArray = response;
+      console.log(response);
+    });
+    }
 }
 
