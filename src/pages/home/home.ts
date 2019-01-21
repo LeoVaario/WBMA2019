@@ -10,7 +10,6 @@ import { MediaProvider } from '../../providers/media/media';
 })
 
 export class HomePage {
-  picArray: Pic[] = [];
 
   constructor(public navCtrl: NavController, private mediaProvider: MediaProvider) {
   }
@@ -18,6 +17,6 @@ export class HomePage {
     this.getAllFiles();
   }
   getAllFiles() {
-    this.mediaProvider.getImages()
+    this.mediaProvider.getAllMedia();
   }
 }

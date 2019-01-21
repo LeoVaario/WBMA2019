@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pic } from '../../interfaces/pic';
-
 /*
   Generated class for the MediaProvider provider.
 
@@ -10,14 +9,24 @@ import { Pic } from '../../interfaces/pic';
 */
 @Injectable()
 export class MediaProvider {
-
   picArray: Pic[] = [];
   mediaPathId = 'http://media.mw.metropolia.fi/wbma/media';
   constructor(public http: HttpClient) {
     console.log('Hello MediaProvider Provider');
   }
 
-  getImages() {
+  getMedia() {
+    this.http.get<Pic[]>(this.mediaPathId).subscribe((response: Pic[]) => {
+      response.map(file => file.thumbnails = {
+        // Add thumbnail file path
+        160: file.filename.split('.')[0] + '-tn160.png',
+      });
+      this.picArray = response;
+      console.log(response);
+    });
+  }
+
+  getAllMedia() {
     this.http.get<Pic[]>(this.mediaPathId).
       toPromise().
       then((response: Pic[]) => {
