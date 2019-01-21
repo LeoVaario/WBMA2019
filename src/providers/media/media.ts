@@ -26,6 +26,7 @@ export class MediaProvider {
       console.log(this.picArray);
     });
   }
+  // method using promises
   getAllMedia() {
     this.http.get<Pic[]>(this.mediaPathId).
       toPromise().

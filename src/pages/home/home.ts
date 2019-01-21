@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
-import { Pic } from '../../interfaces/pic';
 import { MediaProvider } from '../../providers/media/media';
 
 @Component({
