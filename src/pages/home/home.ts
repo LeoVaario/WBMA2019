@@ -17,6 +17,6 @@ export class HomePage {
     this.getAllFiles();
   }
   getAllFiles() {
-    this.mediaProvider.getAllMedia();
+    this.mediaProvider.getMedia();
   }
 }
