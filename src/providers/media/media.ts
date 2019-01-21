@@ -17,15 +17,15 @@ export class MediaProvider {
 
   getMedia() {
     this.http.get<Pic[]>(this.mediaPathId).subscribe((response: Pic[]) => {
-      response.map(file => file.thumbnails = {
-        // Add thumbnail file path
-        160: file.filename.split('.')[0] + '-tn160.png',
+      response.map(file => {
+        this.http.get<Pic>(this.mediaPathId + '/' + file.file_id).subscribe((single: Pic) => {
+          this.picArray.push(single);
+        });
       });
-      this.picArray = response;
-      console.log(response);
+      console.log('picArray');
+      console.log(this.picArray);
     });
   }
-
   getAllMedia() {
     this.http.get<Pic[]>(this.mediaPathId).
       toPromise().
