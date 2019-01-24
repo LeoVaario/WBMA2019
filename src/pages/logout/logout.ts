@@ -4,8 +4,6 @@ import { NavController, NavParams } from 'ionic-angular';
 /**
  * Generated class for the LogoutPage page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
  */
 
 @Component({
@@ -20,5 +18,9 @@ export class LogoutPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogoutPage');
   }
+
+  // TODO: Create a logout method and call it when logout tab gets clicked
+  // clear localstorage and update login status in mediaprovider
+  // and move back to home page
 
 }

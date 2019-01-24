@@ -1,11 +1,12 @@
+import { MediaProvider } from './../../providers/media/media';
+import { LogoutPage } from './../logout/logout';
+import { LoginRegisterPage } from './../login-register/login-register';
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the MenuPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
  */
 
 @Component({
@@ -14,10 +15,17 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class MenuPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public mediaProvider: MediaProvider,
+    public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
   }
+
+  tab1Root = HomePage;
+  tab2Root = LoginRegisterPage;
+  tab3Root = LogoutPage;
+
 }
