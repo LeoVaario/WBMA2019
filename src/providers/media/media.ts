@@ -17,7 +17,7 @@ export class MediaProvider {
 
   getMedia() {
     this.http.get<Pic[]>(this.mediaPathId).subscribe((response: Pic[]) => {
-      response.map(file => {
+      response.forEach(file => {
         this.http.get<Pic>(this.mediaPathId + '/' + file.file_id).subscribe((single: Pic) => {
           this.picArray.push(single);
         });
